@@ -58,3 +58,36 @@ module "subn-prd" {
     vpc_id       = module.vpc-prd.id_vpc
     cidr         = "10.40.0.0/24"
 }
+
+
+
+
+
+
+
+module "ec2-dev" {
+    source = "./EC2"
+    ami          = "ami-0022f774911c1d690"
+    instance_type = "t2.small"
+    project_name = "dev-ec2"
+    subnet_id    = module.subn-dev.id_subnet
+    az           = "us-east-1a"
+}
+
+module "ec2-stg" {
+    source = "./EC2"
+    ami          = "ami-09d56f8956ab235b3"
+    instance_type = "t2.micro"
+    project_name = "stg-ec2"
+    subnet_id    = module.subn-stg.id_subnet
+    az           = "us-east-1b"
+}
+
+module "ec2-prd" {
+    source = "./EC2"
+    ami          = "ami-0f095f89ae15be883"
+    instance_type = "t2.medium"
+    project_name = "prd-ec2"
+    subnet_id    = module.subn-prd.id_subnet
+    az           = "us-east-1c"
+}
