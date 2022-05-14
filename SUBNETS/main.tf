@@ -1,6 +1,7 @@
-resource "aws_vpc" "main" {
+resource "aws_subnet" "main" {
+  vpc_id     = var.vpc_id
   cidr_block = var.cidr
-  instance_tenancy = default
+
   tags = {
     Name = var.project_name
   }
