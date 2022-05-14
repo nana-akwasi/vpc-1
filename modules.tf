@@ -16,20 +16,22 @@ module "vpc-prd" {
     project_name = "prd-vpc"
 }
 
+
+
 module "igw-dev" {
     source = "./IGW"
     project_name = "dev-igw"
-    vpc_id       = module.vpc-dev.id
+    vpc_id       = module.vpc-dev.id_vpc
 }
 
 module "igw-stg" {
     source = "./IGW"
     project_name = "stg-igw"
-    vpc_id       = module.vpc-stg.id
+    vpc_id       = module.vpc-stg.id_vpc
 }
 
 module "igw-prd" {
     source = "./IGW"
     project_name = "prd-igw"
-    vpc_id       = module.vpc-prd.id
+    vpc_id       = module.vpc-prd.id_vpc
 }
