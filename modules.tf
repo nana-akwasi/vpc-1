@@ -34,10 +34,6 @@ module "igw-prd" {
     vpc_id       = module.vpc-prd.id_vpc
 }
 
-
-
-
-
 module "subn-dev" {
     source = "./SUBNETS"
     project_name = "dev-subn"
@@ -51,19 +47,12 @@ module "subn-stg" {
     vpc_id       = module.vpc-stg.id_vpc
     cidr         = "10.30.0.0/24"
 }
-
 module "subn-prd" {
     source = "./SUBNETS"
     project_name = "prd-subn"
     vpc_id       = module.vpc-prd.id_vpc
     cidr         = "10.40.0.0/24"
 }
-
-
-
-
-
-
 
 module "ec2-dev" {
     source = "./EC2"
