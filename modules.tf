@@ -15,3 +15,21 @@ module "vpc-prd" {
     cidr = "10.40.0.0/16"
     project_name = "prd-vpc"
 }
+
+module "igw-dev" {
+    source = "./IGW"
+    project_name = "dev-igw"
+    vpc_id       = module.vpc-dev.id
+}
+
+module "igw-stg" {
+    source = "./IGW"
+    project_name = "stg-igw"
+    vpc_id       = module.vpc-stg.id
+}
+
+module "igw-prd" {
+    source = "./IGW"
+    project_name = "prd-igw"
+    vpc_id       = module.vpc-prd.id
+}
